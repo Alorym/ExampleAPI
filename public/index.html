@@ -1,0 +1,23 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="todos">
+            bitch
+        </div>
+        <script>
+            (function() {
+            var todoDiv = document.getElementById('todos');    
+            var http = new XMLHttpRequest();
+            var url = 'http://localhost:5000/api/v1/todos';
+            http.onreadystatechange = function(e) {
+            var response = JSON.parse(http.responseText);
+            todoDiv.innerHTML = response.message;
+            };
+            http.open("GET", url);
+            console.log('sending request')
+            http.send();
+            })()
+        </script>
+    </body>
+</html>
